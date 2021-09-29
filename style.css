@@ -1,0 +1,77 @@
+/* Importing fonts from google fonts roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Setting up universal selector. Applies for all */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: fantasy, "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* To hide the scroll bar */
+}
+
+.container {
+  display: flex;
+  width: 80vw;
+  height: 80vh;
+}
+.panel {
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 0.3;
+  margin: 2px;
+  position: relative; /* We want to make h1 absolute */
+}
+.panel:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1617184003170-4c9fc60cdb75?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+}
+.panel:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1482517716521-3120e5340ed3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80");
+}
+.panel:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1603797539125-2a64d5f50f63?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+}
+.panel:nth-child(4) {
+  background-image: url("https://images.unsplash.com/photo-1513415564515-763d91423bdd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80");
+}
+.panel:nth-child(5) {
+  background-image: url("https://images.unsplash.com/photo-1540567736792-f78f6242e4e0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1932&q=80");
+}
+.panel h1 {
+  color: white;
+  font-size: 35px;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 2%;
+  left: 40%;
+  margin: 0;
+  opacity: 0;
+}
+.panel.active {
+  flex: 5;
+  margin: 5px;
+  transition: flex 0.7s ease-in;
+}
+.panel.active h1 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+/* Now based on screen size, making the panel responsive */
+@media (max-width: 500px) {
+  .container {
+    width: 100vw;
+  }
+  /* When the screen size is below 500px, we want to remove 2 images */
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
